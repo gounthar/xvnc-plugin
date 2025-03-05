@@ -58,7 +58,7 @@ public class XvncWorkflowTest {
             @Override public void evaluate() throws Throwable {
                 Xvnc xvnc = new Xvnc();
                 xvnc.takeScreenshot = true;
-                xvnc.useXauthority = false;
+                xvnc.setUseXauthority(false);
                 CoreWrapperStep step = new CoreWrapperStep(xvnc);
                 step = new StepConfigTester(story.j).configRoundTrip(step);
                 story.j.assertEqualDataBoundBeans(xvnc, step.getDelegate());
