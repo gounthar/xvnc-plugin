@@ -36,7 +36,7 @@ import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 /**
  * {@link BuildWrapper} that runs <code>xvnc</code>.
@@ -397,7 +397,7 @@ public class Xvnc extends SimpleBuildWrapper {
         }
 
         @Override
-        public boolean configure(StaplerRequest req, JSONObject json) throws FormException {
+        public boolean configure(StaplerRequest2 req, JSONObject json) throws FormException {
             // XXX is this now the right style?
             req.bindJSON(this,json);
             save();

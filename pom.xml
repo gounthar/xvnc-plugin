@@ -3,7 +3,8 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.27</version>
+        <version>5.8</version>
+        <relativePath />
     </parent>
 
   <artifactId>xvnc</artifactId>
@@ -11,13 +12,6 @@
   <name>Jenkins Xvnc plugin</name>
   <version>1.29-SNAPSHOT</version>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Xvnc+Plugin</url>
-  <developers>
-    <developer>
-        <id>levsa</id>
-        <name>Levon Saldamli</name>
-        <email>levon.sa@gmail.com</email>
-    </developer>
-  </developers>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -25,21 +19,22 @@
         </license>
     </licenses>
     <scm>
-    <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
+    <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
     <url>http://github.com/jenkinsci/${project.artifactId}-plugin</url>
     <tag>HEAD</tag>
   </scm>
   <properties>
-    <jenkins.version>2.277.3</jenkins.version>
-    <java.level>8</java.level>
+    <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+    <jenkins.baseline>2.479</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
   </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.277.x</artifactId>
-                <version>950.v396cb834de1e</version>
+                <artifactId>bom-${jenkins.baseline}.x</artifactId>
+                <version>4228.v0a_71308d905b_</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -85,16 +80,6 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <!-- Use older version to avoid https://github.com/spotbugs/spotbugs/issues/1539 -->
-                    <groupId>com.github.spotbugs</groupId>
-                    <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.2.2</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
     <repositories>
