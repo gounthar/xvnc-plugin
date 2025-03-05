@@ -52,7 +52,16 @@ public class Xvnc extends SimpleBuildWrapper {
     public boolean takeScreenshot;
 
     @DataBoundSetter
-    public Boolean useXauthority = true;
+    private Boolean useXauthority = true;
+
+    public Boolean getUseXauthority() {
+        return useXauthority;
+    }
+
+    @DataBoundSetter
+    public void setUseXauthority(Boolean useXauthority) {
+        this.useXauthority = useXauthority;
+    }
 
     private static final String FILENAME_SCREENSHOT = "screenshot.jpg";
 
